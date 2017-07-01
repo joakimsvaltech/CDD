@@ -44,7 +44,7 @@
     <Compile Include="Commands\RenameConstraintCommand.cs" />
     <Compile Include="Commands\RemoveConstraintCommand.cs" />
     <Compile Include="Commands\ListConstraintsCommand.cs" />
-    <Compile Include="Commands\PrintCommand.cs" />
+    <Compile Include="Commands\PrintProgramCommand.cs" />
     <Compile Include="Commands\ReplaceConstraintCommand.cs" />
     <Compile Include="Commands\AddConstraintCommand.cs" />
     <Compile Include="Commands\Command.cs" />

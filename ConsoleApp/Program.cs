@@ -16,12 +16,12 @@ namespace CDD.ConsoleApp
         {
             CommandBinding.Create<HelpCommand>("Help", ConsoleKey.H, ConsoleKey.Help),
             CommandBinding.Create<ExitCommand>("Exit", ConsoleKey.E, ConsoleKey.X, ConsoleKey.Q, ConsoleKey.Escape),
-            CommandBinding.Create<PrintCommand>("Print program", ConsoleKey.P),
+            CommandBinding.Create<PrintProgramCommand>("Print program", ConsoleKey.P),
             CommandBinding.Create<ListConstraintsCommand>("List constraints", ConsoleKey.L),
             CommandBinding.Create<AddConstraintCommand>("Add constraint", ConsoleKey.Add, ConsoleKey.A),
             CommandBinding.Create<RemoveConstraintCommand>("Remove constraint", ConsoleKey.Subtract, ConsoleKey.D),
             CommandBinding.Create<ReplaceConstraintCommand>("Replace constraint", ConsoleKey.C),
-            CommandBinding.Create<RenameConstraintCommand>("REnme constraint", ConsoleKey.R, ConsoleKey.N),
+            CommandBinding.Create<RenameConstraintCommand>("Renme constraint", ConsoleKey.N),
         };
 
         static void Main(string[] args)
@@ -70,27 +70,27 @@ namespace CDD.ConsoleApp
         }
 
         private static void UpdateProgram(Command command)
-            => Interpreter.ExecuteCommand(ConfigureCommand(command));
+            => Interpreter.ExecuteCommand(Configure(command));
 
-        private static Command ConfigureCommand(Command command)
+        private static Command Configure(Command command)
         {
             switch (command)
             {
                 case ListConstraintsCommand list:
-                    return ConfigureCommand(list);
+                    return Configure(list);
                 case AddConstraintCommand add:
-                    return ConfigureCommand(add);
+                    return Configure(add);
                 case RemoveConstraintCommand remove:
-                    return ConfigureCommand(remove);
+                    return Configure(remove);
                 case ReplaceConstraintCommand replace:
-                    return ConfigureCommand(replace);
+                    return Configure(replace);
                 case RenameConstraintCommand rename:
-                    return ConfigureCommand(rename);
-                default: throw new InvalidOperationException("Unknown update program command: " + command);
+                    return Configure(rename);
+                default: return command;
             }
         }
 
-        private static Command ConfigureCommand(ListConstraintsCommand list)
+        private static Command Configure(ListConstraintsCommand list)
         {
             Console.WriteLine("List constraints");
             Console.Write("By name: ");
@@ -98,7 +98,7 @@ namespace CDD.ConsoleApp
             return list;
         }
 
-        private static Command ConfigureCommand(AddConstraintCommand add)
+        private static Command Configure(AddConstraintCommand add)
         {
             Console.WriteLine("Add constraint");
             Console.Write("Name: ");
@@ -108,7 +108,7 @@ namespace CDD.ConsoleApp
             return add;
         }
 
-        private static Command ConfigureCommand(RemoveConstraintCommand remove)
+        private static Command Configure(RemoveConstraintCommand remove)
         {
             Console.WriteLine("Remove constraint");
             Console.Write("Name: ");
@@ -116,7 +116,7 @@ namespace CDD.ConsoleApp
             return remove;
         }
 
-        private static Command ConfigureCommand(ReplaceConstraintCommand replace)
+        private static Command Configure(ReplaceConstraintCommand replace)
         {
             Console.WriteLine("Replace constraint");
             Console.Write("Name: ");
@@ -127,7 +127,7 @@ namespace CDD.ConsoleApp
             return replace;
         }
 
-        private static Command ConfigureCommand(RenameConstraintCommand rename)
+        private static Command Configure(RenameConstraintCommand rename)
         {
             Console.WriteLine("Rename constraint");
             Console.Write("Old name: ");
