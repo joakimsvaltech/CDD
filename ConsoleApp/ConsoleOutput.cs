@@ -17,5 +17,8 @@ namespace CDD.ConsoleApp
 
         public void Divider()
             => Console.WriteLine("----------------------------");
+
+        public void Label(string label)
+            => Console.Write($"{label}: ");
     }
 }

@@ -41,16 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\RenameConstraintCommand.cs" />
-    <Compile Include="Commands\RemoveConstraintCommand.cs" />
-    <Compile Include="Commands\ListConstraintsCommand.cs" />
-    <Compile Include="Commands\PrintProgramCommand.cs" />
-    <Compile Include="Commands\ReplaceConstraintCommand.cs" />
-    <Compile Include="Commands\AddConstraintCommand.cs" />
+    <Compile Include="Commands\InterpreterCommand.cs" />
+    <Compile Include="Commands\CommandConfigurer.cs" />
+    <Compile Include="Commands\LoadProgram.cs" />
+    <Compile Include="Commands\SaveProgram.cs" />
+    <Compile Include="Commands\RenameConstraint.cs" />
+    <Compile Include="Commands\RemoveConstraint.cs" />
+    <Compile Include="Commands\ListConstraints.cs" />
+    <Compile Include="Commands\PrintProgram.cs" />
+    <Compile Include="Commands\ReplaceConstraint.cs" />
+    <Compile Include="Commands\AddConstraint.cs" />
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Expression.cs" />
     <Compile Include="Constraint.cs" />
     <Compile Include="Interpreter.cs" />
+    <Compile Include="Input.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
