@@ -1,8 +1,9 @@
 ﻿namespace CDD.Core
 {
-    public interface Output
+    public interface Interactor
     {
-        void Text<T>(T obj);
+        string Input();
+        void Output<T>(T obj);
         void Caption(string caption);
         void Divider();
         void Label(string label);

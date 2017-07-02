@@ -1,3 +1,6 @@
+using System.Linq;
+using CDD.Utility;
+
 namespace CDD.Core.Commands
 {
     public class ListConstraints : InterpreterCommand
@@ -5,7 +8,10 @@ namespace CDD.Core.Commands
         public string Pattern { get; set; }
         public override void Execute(Interpreter interpreter)
         {
-            throw new System.NotImplementedException();
+            Interactor.Caption("Constraints by name: " + Pattern);
+            interpreter.Constraints
+                .Where(c => c.Name.Contains(Pattern))
+                .ForEach(Interactor.Output);
         }
     }
 }

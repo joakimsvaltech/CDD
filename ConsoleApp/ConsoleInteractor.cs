@@ -3,9 +3,11 @@ using CDD.Core;
 
 namespace CDD.ConsoleApp
 {
-    public class ConsoleOutput : Output
+    public class ConsoleInteractor : Interactor
     {
-        public void Text<T>(T obj)
+        public string Input() => Console.ReadLine();
+
+        public void Output<T>(T obj)
             => Console.WriteLine($"{obj}");
 
         public void Caption(string caption)

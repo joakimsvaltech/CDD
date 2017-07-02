@@ -9,9 +9,8 @@ namespace CDD.ConsoleApp
 {
     internal class Program
     {
-        private static readonly Output Output = new ConsoleOutput();
-        private static readonly Input Input = new ConsoleInput();
-        private static readonly Interpreter Interpreter = new Interpreter(Output);
+        private static readonly Interactor Interactor = new ConsoleInteractor();
+        private static readonly Interpreter Interpreter = new Interpreter();
 
         private static readonly IList<CommandBinding> CommandBindings = new[]
         {
@@ -35,13 +34,13 @@ namespace CDD.ConsoleApp
 
         private static void Introduction()
         {
-            Output.Caption("Constraint driven code-generator v. 0.1");
-            Output.Text("Add, remove or change constraints");
-            Output.Text("by command line commands.");
-            Output.Text("Watch a program that follows");
-            Output.Text("all constraints grow before your eyes!");
-            Output.Text("Press 'H' for help");
-            Output.Divider();
+            Interactor.Caption("Constraint driven code-generator v. 0.1");
+            Interactor.Output("Add, remove or change constraints");
+            Interactor.Output("by command line commands.");
+            Interactor.Output("Watch a program that follows");
+            Interactor.Output("all constraints grow before your eyes!");
+            Interactor.Output("Press 'H' for help");
+            Interactor.Divider();
         }
 
         private static void Interaction()
@@ -56,22 +55,22 @@ namespace CDD.ConsoleApp
             Console.Write(":> ");
             var keyInfo = Console.ReadKey();
             Console.WriteLine();
-            return Interpret(keyInfo.Key) ?? new HelpCommand();
+            return Interpret(keyInfo.Key);
         }
 
         private static Command Interpret(ConsoleKey key)
             => CommandBindings
             .SingleOrDefault(c => c.Keys.Contains(key))
-            ?.Command();
+            ?.Command() ?? new HelpCommand();
 
         private static bool Execute(Command command)
         {
-            command.Configure(Output, Input);
+            command.Configure(Interactor);
             switch (command)
             {
-                case ExitCommand exit:
+                case ExitCommand _:
                     return false;
-                case HelpCommand help:
+                case HelpCommand _:
                     PrintHelp();
                     return true;
                 case InterpreterCommand interpret:
@@ -84,8 +83,8 @@ namespace CDD.ConsoleApp
 
         private static void PrintHelp()
         {
-            Output.Caption("Commands:");
-            CommandBindings.ForEach(Output.Text);
+            Interactor.Caption("Commands:");
+            CommandBindings.ForEach(Interactor.Output);
         }
     }
 }

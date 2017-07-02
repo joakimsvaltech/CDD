@@ -4,8 +4,6 @@ namespace CDD.Core.Commands
     {
         public string Name { get; set; }
         public override void Execute(Interpreter interpreter)
-        {
-            throw new System.NotImplementedException();
-        }
+            => interpreter.Remove(Name);
     }
 }

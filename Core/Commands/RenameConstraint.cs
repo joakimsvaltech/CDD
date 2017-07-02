@@ -6,7 +6,9 @@ namespace CDD.Core.Commands
         public string NewName { get; set; }
         public override void Execute(Interpreter interpreter)
         {
-            throw new System.NotImplementedException();
+            var constraint = interpreter.Remove(OldName);
+            constraint.Name = NewName;
+            interpreter.Add(constraint);
         }
     }
 }

@@ -6,7 +6,9 @@ namespace CDD.Core.Commands
         public string NewConstraint { get; set; }
         public override void Execute(Interpreter interpreter)
         {
-            throw new System.NotImplementedException();
+            var constraint = interpreter.Remove(Name);
+            constraint.Assert = NewConstraint;
+            interpreter.Add(constraint);
         }
     }
 }
