@@ -1,8 +1,9 @@
 using System.Linq;
-using CDD.Utility;
 
 namespace CDD.Core.Commands
 {
+    using Utility;
+
     public class ListConstraints : InterpreterCommand
     {
         public string Pattern { get; set; }

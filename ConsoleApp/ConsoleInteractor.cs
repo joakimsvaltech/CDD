@@ -1,26 +1,18 @@
 ﻿using System;
-using CDD.Core;
 
 namespace CDD.ConsoleApp
 {
+    using Core;
+    using Utility;
+
     public class ConsoleInteractor : Interactor
     {
         public string Input() => Console.ReadLine();
-
-        public void Output<T>(T obj)
-            => Console.WriteLine($"{obj}");
-
+        public void Output<T>(T obj) => Console.WriteLine($"{obj}");
+        public void Label(string label) => Console.Write($"{label}: ");
+        public void Divider() => Console.WriteLine(new string('-', 30));
         public void Caption(string caption)
-        {
-            Console.WriteLine();
-            Console.WriteLine(caption);
-            Console.WriteLine(new string('=', caption.Length));
-        }
-
-        public void Divider()
-            => Console.WriteLine("----------------------------");
-
-        public void Label(string label)
-            => Console.Write($"{label}: ");
+            => new[] {"", caption, new string('=', caption.Length)}
+            .ForEach(Console.WriteLine);
     }
 }

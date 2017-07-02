@@ -1,18 +1,21 @@
 using System.Linq;
 using System.Reflection;
-using CDD.Utility;
 
 namespace CDD.Core.Commands
 {
+    using Utility;
+
     public abstract class Command
     {
         protected Interactor Interactor;
+        protected Storage Storage;
 
         private string CommandName => GetType().Name.CamelCaseToWords();
 
-        public void Configure(Interactor interactor)
+        public void Configure(Interactor interactor, Storage storage)
         {
             Interactor = interactor;
+            Storage = storage;
             var setters = GetType()
                 .GetProperties()
                 .Where(p => p.CanWrite)

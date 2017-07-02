@@ -46,6 +46,7 @@
     <Compile Include="CommandBinding.cs" />
     <Compile Include="ConsoleInteractor.cs" />
     <Compile Include="ExitCommand.cs" />
+    <Compile Include="FileStorage.cs" />
     <Compile Include="HelpCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

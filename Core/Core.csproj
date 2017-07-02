@@ -53,6 +53,7 @@
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Expression.cs" />
     <Compile Include="Constraint.cs" />
+    <Compile Include="Storage.cs" />
     <Compile Include="Interactor.cs" />
     <Compile Include="Interpreter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

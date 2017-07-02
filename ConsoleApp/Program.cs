@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CDD.Core;
-using CDD.Core.Commands;
-using CDD.Utility;
 
 namespace CDD.ConsoleApp
 {
+    using Core;
+    using Core.Commands;
+    using Utility;
+
     internal class Program
     {
         private static readonly Interactor Interactor = new ConsoleInteractor();
         private static readonly Interpreter Interpreter = new Interpreter();
+        private static readonly Storage Storage = new FileStorage();
 
         private static readonly IList<CommandBinding> CommandBindings = new[]
         {
@@ -65,7 +67,7 @@ namespace CDD.ConsoleApp
 
         private static bool Execute(Command command)
         {
-            command.Configure(Interactor);
+            command.Configure(Interactor, Storage);
             switch (command)
             {
                 case ExitCommand _:

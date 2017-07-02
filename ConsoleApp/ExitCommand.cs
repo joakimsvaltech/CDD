@@ -1,8 +1,6 @@
-using CDD.Core.Commands;
-
 namespace CDD.ConsoleApp
 {
-    public class ExitCommand : Command
+    public class ExitCommand : Core.Commands.Command
     {
     }
 }

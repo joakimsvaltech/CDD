@@ -1,9 +1,10 @@
 ﻿using System;
-using CDD.Core.Commands;
-using CDD.Utility;
 
 namespace CDD.ConsoleApp
 {
+    using Core.Commands;
+    using Utility;
+
     internal class CommandBinding
     {
         private readonly string _name;
@@ -12,9 +13,7 @@ namespace CDD.ConsoleApp
 
         public static CommandBinding Create<TCommand>(params ConsoleKey[] keys)
             where TCommand : Command, new()
-        {
-            return new CommandBinding(typeof(TCommand).Name.CamelCaseToWords(), () => new TCommand(), keys);
-        }
+            => new CommandBinding(typeof(TCommand).Name.CamelCaseToWords(), () => new TCommand(), keys);
 
         private CommandBinding(string name, Func<Command> command, ConsoleKey[] keys)
         {
