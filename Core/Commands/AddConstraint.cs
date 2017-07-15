@@ -4,7 +4,7 @@ namespace CDD.Core.Commands
     {
         public string Name { get; set; }
         public string Constraint { get; set; }
-        public override void Execute(Interpreter interpreter)
-            => interpreter.Add(new Constraint(Name, Constraint));
+        public override void Execute(Program interpreter)
+            => interpreter.Add(new NamedConstraint(Constraints.Constraint.Parse(Constraint), Name));
     }
 }

@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BF32E639-0E3D-4883-BA8B-A635E461D22E}</ProjectGuid>
+    <ProjectGuid>{D815BD8F-FFF5-4403-B8A5-1DB36443A49B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CDD.Core</RootNamespace>
-    <AssemblyName>CDD.Core</AssemblyName>
+    <RootNamespace>CDD.Core.Test</RootNamespace>
+    <AssemblyName>CDD.Core.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,35 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constraints\Constraint.cs" />
-    <Compile Include="Commands\InterpreterCommand.cs" />
-    <Compile Include="Commands\LoadProgram.cs" />
-    <Compile Include="Commands\SaveProgram.cs" />
-    <Compile Include="Commands\RenameConstraint.cs" />
-    <Compile Include="Commands\RemoveConstraint.cs" />
-    <Compile Include="Commands\ListConstraints.cs" />
-    <Compile Include="Commands\PrintProgram.cs" />
-    <Compile Include="Commands\ReplaceConstraint.cs" />
-    <Compile Include="Commands\AddConstraint.cs" />
-    <Compile Include="Commands\Command.cs" />
-    <Compile Include="Expressions\Constant.cs" />
-    <Compile Include="Expressions\Expression.cs" />
-    <Compile Include="NamedConstraint.cs" />
-    <Compile Include="Generator.cs" />
-    <Compile Include="Constraints\OutputConstraint.cs" />
-    <Compile Include="Storage.cs" />
-    <Compile Include="Interactor.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Generators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Utility\Utility.csproj">
-      <Project>{70FCEC7C-E590-4BC4-8446-AF02829D4FAF}</Project>
-      <Name>Utility</Name>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{BF32E639-0E3D-4883-BA8B-A635E461D22E}</Project>
+      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

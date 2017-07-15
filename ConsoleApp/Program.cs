@@ -11,7 +11,7 @@ namespace CDD.ConsoleApp
     internal class Program
     {
         private static readonly Interactor Interactor = new ConsoleInteractor();
-        private static readonly Interpreter Interpreter = new Interpreter();
+        private static readonly Core.Program Interpreter = new Core.Program(new Generator());
         private static readonly Storage Storage = new FileStorage();
 
         private static readonly IList<CommandBinding> CommandBindings = new[]

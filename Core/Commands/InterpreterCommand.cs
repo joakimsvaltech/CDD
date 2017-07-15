@@ -2,6 +2,6 @@ namespace CDD.Core.Commands
 {
     public abstract class InterpreterCommand : Command
     {
-        public abstract void Execute(Interpreter interpreter);
+        public abstract void Execute(Program interpreter);
     }
 }

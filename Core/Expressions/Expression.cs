@@ -1,4 +1,4 @@
-﻿namespace CDD.Core
+﻿namespace CDD.Core.Expressions
 {
     public class Expression
     {
