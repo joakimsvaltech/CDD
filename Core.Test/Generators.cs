@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace CDD.Core.Test
 {
-    using Constraints;
+    using Core.Constraints;
     using Expressions;
 
     [TestFixture]

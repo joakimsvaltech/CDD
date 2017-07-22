@@ -4,11 +4,11 @@ namespace CDD.Core.Commands
     {
         public string OldName { get; set; }
         public string NewName { get; set; }
-        public override void Execute(Program interpreter)
+        public override void Execute(Program program)
         {
-            var constraint = interpreter.Remove(OldName);
+            var constraint = program.Remove(OldName);
             constraint.Name = NewName;
-            interpreter.Add(constraint);
+            program.Add(constraint);
         }
     }
 }

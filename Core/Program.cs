@@ -6,12 +6,8 @@ namespace CDD.Core
 {
     public class Program
     {
-        private readonly Generator _generator;
         private Dictionary<string, NamedConstraint> _constraints = new Dictionary<string, NamedConstraint>();
         private List<Expression> _expressions = new List<Expression>();
-
-        public Program(Generator generator)
-            =>_generator = generator;
 
         public IEnumerable<NamedConstraint> Constraints
         {
@@ -19,7 +15,7 @@ namespace CDD.Core
             set
             {
                 _constraints = value.ToDictionary(c => c.Name);
-                _expressions = Generate();
+                ReGenerate();
             }
         }
 
@@ -28,17 +24,18 @@ namespace CDD.Core
         public void Add(NamedConstraint constraint)
         {
             _constraints.Add(constraint.Name, constraint);
-            _expressions = Generate();
+            ReGenerate();
         }
 
-        private List<Expression> Generate()
-            => Generator.Generate(_constraints.Values.Select(nc => nc.Constraint).ToArray())
+        private void ReGenerate()
+            => _expressions = Generator.Generate(_constraints.Values.Select(nc => nc.Constraint).ToArray())
                             .ToList();
 
         public NamedConstraint Remove(string name)
         {
             var constraint = _constraints[name];
             _constraints.Remove(name);
+            ReGenerate();
             return constraint;
         }
     }

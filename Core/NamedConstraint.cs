@@ -16,7 +16,9 @@ namespace CDD.Core
         public static NamedConstraint Parse(string constraint)
         {
             var parts = constraint.Split(new[] { ':' }, 2);
-            return new NamedConstraint(Constraint.Parse(parts[0]), parts[1].Trim());
+            var name = parts[0].Trim();
+            var representation = parts[1].Trim();
+            return new NamedConstraint(Constraint.Parse(representation), name);
         }
 
         public override string ToString()

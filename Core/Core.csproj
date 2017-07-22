@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,6 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constraints\Tokenizer.cs" />
+    <Compile Include="Constraints\TokenGenerator.cs" />
+    <Compile Include="Constraints\TreeNode.cs" />
+    <Compile Include="Expressions\Return.cs" />
+    <Compile Include="Tokens\Literal.cs" />
+    <Compile Include="Tokens\Multiply.cs" />
+    <Compile Include="Tokens\Output.cs" />
+    <Compile Include="Tokens\Add.cs" />
     <Compile Include="Constraints\Constraint.cs" />
     <Compile Include="Commands\InterpreterCommand.cs" />
     <Compile Include="Commands\LoadProgram.cs" />
@@ -52,6 +61,9 @@
     <Compile Include="Commands\ReplaceConstraint.cs" />
     <Compile Include="Commands\AddConstraint.cs" />
     <Compile Include="Commands\Command.cs" />
+    <Compile Include="Tokens\Token.cs" />
+    <Compile Include="Expressions\Multiplication.cs" />
+    <Compile Include="Expressions\Addition.cs" />
     <Compile Include="Expressions\Constant.cs" />
     <Compile Include="Expressions\Expression.cs" />
     <Compile Include="NamedConstraint.cs" />
@@ -71,5 +83,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

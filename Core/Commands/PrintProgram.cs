@@ -4,12 +4,12 @@ namespace CDD.Core.Commands
 
     public class PrintProgram : InterpreterCommand
     {
-        public override void Execute(Program interpreter)
+        public override void Execute(Program program)
         {
             Interactor.Caption("Program constraints:");
-            interpreter.Constraints.ForEach(Interactor.Output);
+            program.Constraints.ForEach(Interactor.Output);
             Interactor.Caption("Program expressions:");
-            interpreter.Expressions.ForEach(Interactor.Output);
+            program.Expressions.ForEach(Interactor.Output);
         }
     }
 }

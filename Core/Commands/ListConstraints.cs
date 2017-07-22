@@ -7,10 +7,10 @@ namespace CDD.Core.Commands
     public class ListConstraints : InterpreterCommand
     {
         public string Pattern { get; set; }
-        public override void Execute(Program interpreter)
+        public override void Execute(Program program)
         {
             Interactor.Caption("Constraints by name: " + Pattern);
-            interpreter.Constraints
+            program.Constraints
                 .Where(c => c.Name.Contains(Pattern))
                 .ForEach(Interactor.Output);
         }
