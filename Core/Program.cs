@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CDD.Core.Expressions;
+using CDD.Core.Temporal;
 
 namespace CDD.Core
 {
@@ -8,6 +8,10 @@ namespace CDD.Core
     {
         private Dictionary<string, NamedConstraint> _constraints = new Dictionary<string, NamedConstraint>();
         private List<Expression> _expressions = new List<Expression>();
+        private readonly Generator _generator;
+
+        public Program(Generator generator)
+            => _generator = generator;
 
         public IEnumerable<NamedConstraint> Constraints
         {
@@ -28,7 +32,7 @@ namespace CDD.Core
         }
 
         private void ReGenerate()
-            => _expressions = Generator.Generate(_constraints.Values.Select(nc => nc.Constraint).ToArray())
+            => _expressions = _generator.Generate(_constraints.Values.Select(nc => nc.Constraint).ToArray())
                             .ToList();
 
         public NamedConstraint Remove(string name)

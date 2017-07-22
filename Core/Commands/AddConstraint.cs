@@ -5,6 +5,6 @@ namespace CDD.Core.Commands
         public string Name { get; set; }
         public string Constraint { get; set; }
         public override void Execute(Program program)
-            => program.Add(new NamedConstraint(Translator.Translate(Constraint), Name));
+            => program.Add(Parser.CreateConstraint(Name, Constraint));
     }
 }

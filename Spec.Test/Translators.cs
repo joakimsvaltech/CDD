@@ -1,8 +1,7 @@
-﻿using CDD.Core.Constraints;
-using CDD.Core.Expressions;
+﻿using CDD.Core.Spec;
 using NUnit.Framework;
 
-namespace CDD.Core.Test
+namespace CDD.Perpetual.Test
 {
     [TestFixture]
     public class Translators
@@ -40,6 +39,7 @@ namespace CDD.Core.Test
         [TestCase(":< 1*1", 1)]
         [TestCase(":< 2*3+4", 10)]
         [TestCase(":< 2+3*4", 14)]
+        [TestCase(":< (2+3)*4", 20)]
         public void CanParseAlgebraicConstantOutputConstraint(string representation, int expectedValue)
         {
             var constant = GetOutputConstantValue<int>(representation);
@@ -48,7 +48,7 @@ namespace CDD.Core.Test
 
         private static Constant<TValue> GetOutputConstantValue<TValue>(string representation)
         {
-            var constraint = Translator.Translate(representation);
+            var constraint = new TranslatorImpl().Translate(representation);
             Assert.That(constraint, Is.TypeOf<OutputConstraint>());
             var outputConstraint = (OutputConstraint)constraint;
             Assert.That(outputConstraint.Expression, Is.TypeOf<Constant<TValue>>());

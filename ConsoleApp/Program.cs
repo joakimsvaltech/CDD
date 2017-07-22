@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CDD.Core.Spec;
+using CDD.Perpetual;
 
 namespace CDD.ConsoleApp
 {
@@ -10,8 +12,11 @@ namespace CDD.ConsoleApp
 
     internal class Program
     {
+        private static readonly Generator Generator = new GeneratorImpl();
+        private static readonly Translator Translator = new TranslatorImpl();
+        private static readonly Parser Parser = new ParserImpl(Translator);
         private static readonly Interactor Interactor = new ConsoleInteractor();
-        private static readonly Core.Program Interpreter = new Core.Program();
+        private static readonly Core.Program Interpreter = new Core.Program(Generator);
         private static readonly Storage Storage = new FileStorage();
 
         private static readonly IList<CommandBinding> CommandBindings = new[]
@@ -67,7 +72,7 @@ namespace CDD.ConsoleApp
 
         private static bool Execute(Command command)
         {
-            command.Configure(Interactor, Storage);
+            command.Configure(Interactor, Storage, Parser);
             switch (command)
             {
                 case ExitCommand _:

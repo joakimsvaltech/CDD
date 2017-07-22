@@ -1,4 +1,4 @@
-namespace CDD.Core.Constraints
+namespace CDD.Core.Spec
 {
     public class Constraint
     {

@@ -1,6 +1,4 @@
-using CDD.Core.Expressions;
-
-namespace CDD.Core.Constraints
+namespace CDD.Core.Spec
 {
     public class OutputConstraint : Constraint
     {

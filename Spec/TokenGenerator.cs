@@ -1,7 +1,7 @@
 using System;
-using CDD.Core.Tokens;
+using CDD.Perpetual.Tokens;
 
-namespace CDD.Core
+namespace CDD.Perpetual
 {
     internal class TokenGenerator
     {

@@ -1,24 +1,28 @@
 using System.Collections.Generic;
 using System.Linq;
-using CDD.Core.Constraints;
-using CDD.Core.Expressions;
+using CDD.Core.Spec;
+using Expression = CDD.Core.Temporal.Expression;
 
 namespace CDD.Core
 {
-    public class Generator
+    public interface Generator
     {
-        public static IEnumerable<Expression> Generate(params Constraint[] constraints)
+        IEnumerable<Expression> Generate(params Constraint[] constraints);
+    }
+
+    public class GeneratorImpl : Generator
+    {
+        public IEnumerable<Expression> Generate(params Constraint[] constraints)
         {
             if (constraints.Any())
-                yield return GenerateExpression(constraints.Single()); 
+                yield return GenerateExpression(constraints.Single());
         }
 
         private static Expression GenerateExpression(Constraint constraint)
         {
             switch (constraint)
             {
-                case OutputConstraint oc: return oc.Expression;
-                default: return null; 
+                default: return null;
             }
         }
     }

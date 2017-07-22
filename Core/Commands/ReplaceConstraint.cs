@@ -1,5 +1,3 @@
-using CDD.Core.Constraints;
-
 namespace CDD.Core.Commands
 {
     public class ReplaceConstraint : InterpreterCommand
@@ -8,9 +6,8 @@ namespace CDD.Core.Commands
         public string NewConstraint { get; set; }
         public override void Execute(Program program)
         {
-            var namedConstraint = program.Remove(Name);
-            namedConstraint.Constraint = Translator.Translate(NewConstraint);
-            program.Add(namedConstraint);
+            program.Remove(Name);
+            program.Add(Parser.CreateConstraint(Name, NewConstraint));
         }
     }
 }

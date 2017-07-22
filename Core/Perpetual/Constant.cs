@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace CDD.Core.Expressions
+namespace CDD.Core.Spec
 {
     public class Constant : Expression
     {

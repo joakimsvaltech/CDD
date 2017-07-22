@@ -9,13 +9,15 @@ namespace CDD.Core.Commands
     {
         protected Interactor Interactor;
         protected Storage Storage;
+        protected Parser Parser;
 
         private string CommandName => GetType().Name.CamelCaseToWords();
 
-        public void Configure(Interactor interactor, Storage storage)
+        public void Configure(Interactor interactor, Storage storage, Parser parser)
         {
             Interactor = interactor;
             Storage = storage;
+            Parser = parser;
             var setters = GetType()
                 .GetProperties()
                 .Where(p => p.CanWrite)

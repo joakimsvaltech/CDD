@@ -59,6 +59,10 @@
       <Project>{bf32e639-0e3d-4883-ba8b-a635e461d22e}</Project>
       <Name>Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Spec\Perpetual.csproj">
+      <Project>{2A9C7F53-0842-4AF1-8727-FA7C51E04A16}</Project>
+      <Name>Perpetual</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\Utility.csproj">
       <Project>{70FCEC7C-E590-4BC4-8446-AF02829D4FAF}</Project>
       <Name>Utility</Name>

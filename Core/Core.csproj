@@ -42,16 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Translator.cs" />
-    <Compile Include="Tokenizer.cs" />
-    <Compile Include="TokenGenerator.cs" />
-    <Compile Include="TreeNode.cs" />
-    <Compile Include="Expressions\Return.cs" />
-    <Compile Include="Tokens\Literal.cs" />
-    <Compile Include="Tokens\Multiply.cs" />
-    <Compile Include="Tokens\Output.cs" />
-    <Compile Include="Tokens\Add.cs" />
-    <Compile Include="Constraints\Constraint.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="Temporal\Expression.cs" />
+    <Compile Include="Perpetual\Constraint.cs" />
     <Compile Include="Commands\InterpreterCommand.cs" />
     <Compile Include="Commands\LoadProgram.cs" />
     <Compile Include="Commands\SaveProgram.cs" />
@@ -62,14 +55,15 @@
     <Compile Include="Commands\ReplaceConstraint.cs" />
     <Compile Include="Commands\AddConstraint.cs" />
     <Compile Include="Commands\Command.cs" />
-    <Compile Include="Tokens\Token.cs" />
-    <Compile Include="Expressions\Multiplication.cs" />
-    <Compile Include="Expressions\Addition.cs" />
-    <Compile Include="Expressions\Constant.cs" />
-    <Compile Include="Expressions\Expression.cs" />
+    <Compile Include="Perpetual\Multiplication.cs" />
+    <Compile Include="Perpetual\Addition.cs" />
+    <Compile Include="Perpetual\Constant.cs" />
+    <Compile Include="Perpetual\Expression.cs" />
     <Compile Include="NamedConstraint.cs" />
     <Compile Include="Generator.cs" />
-    <Compile Include="Constraints\OutputConstraint.cs" />
+    <Compile Include="Perpetual\OutputConstraint.cs" />
+    <Compile Include="Perpetual\Return.cs" />
+    <Compile Include="Perpetual\Translator.cs" />
     <Compile Include="Storage.cs" />
     <Compile Include="Interactor.cs" />
     <Compile Include="Program.cs" />

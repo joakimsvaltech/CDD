@@ -1,4 +1,4 @@
-namespace CDD.Core.Tokens
+namespace CDD.Perpetual.Tokens
 {
     public abstract class Token
 

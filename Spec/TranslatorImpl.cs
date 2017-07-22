@@ -1,22 +1,20 @@
 using System;
+using CDD.Core.Spec;
 
-namespace CDD.Core
+namespace CDD.Perpetual
 {
-    using Constraints;
-    using Expressions;
-
-    public static class Translator
+    public class TranslatorImpl : Translator
     {
-        public static Constraint Translate(string representation)
+        public Constraint Translate(string representation)
         {
             var tokens = Tokenizer.Parse(representation);
-            var expression = Expression.Translate(tokens);
+            var expression = Generator.Compile(tokens);
             switch (expression)
             {
-                case Return returnExpressions:
+                case Return returns:
                     return new OutputConstraint
                     {
-                        Expression = returnExpressions.Statement,
+                        Expression = returns.Statement,
                         Representation = representation
                     };
                 default: throw new NotImplementedException();
