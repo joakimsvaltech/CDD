@@ -20,20 +20,21 @@ namespace CDD.Core.Test
         [TestCase(23)]
         public void YieldIntConstant_GivenIntConstantOutputConstraint(int value)
         {
-            var constant = new Constant<int>(value);
-            var constraint = new OutputConstraint(constant);
-            var expression = Generator.Generate(constraint).Single();
-            Assert.That(expression, Is.EqualTo(constant));
+            YieldConstant_GivenConstantOutputConstraint(new Constant<int>(value));
         }
 
         [TestCase("A")]
         [TestCase("abc")]
         public void YieldIntConstant_GivenIntConstantOutputConstraint(string value)
         {
-            var constant = new Constant<string>(value);
-            var constraint = new OutputConstraint(constant);
+            YieldConstant_GivenConstantOutputConstraint(new Constant<string>(value));
+        }
+
+        private static void YieldConstant_GivenConstantOutputConstraint(Expression output)
+        {
+            var constraint = new OutputConstraint { Expression = output };
             var expression = Generator.Generate(constraint).Single();
-            Assert.That(expression, Is.EqualTo(constant));
+            Assert.That(expression, Is.EqualTo(output));
         }
     }
 }

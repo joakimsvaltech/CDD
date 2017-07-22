@@ -1,6 +1,4 @@
-using CDD.Core.Tokens;
-
-namespace CDD.Core.Constraints
+namespace CDD.Core.Tokens
 {
     public class Output : Token
     {

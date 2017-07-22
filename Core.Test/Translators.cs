@@ -5,11 +5,12 @@ using NUnit.Framework;
 namespace CDD.Core.Test
 {
     [TestFixture]
-    public class Constraints
+    public class Translators
     {
         [TestCase(":< 0", 0)]
         [TestCase(":<  0", 0)]
         [TestCase(":< 1", 1)]
+        [TestCase(":< -2", -2)]
         public void CanParseIntConstantOutputConstraint(string representation, int expectedValue)
         {
             var constant = GetOutputConstantValue<int>(representation);
@@ -47,7 +48,7 @@ namespace CDD.Core.Test
 
         private static Constant<TValue> GetOutputConstantValue<TValue>(string representation)
         {
-            var constraint = Constraint.Parse(representation);
+            var constraint = Translator.Translate(representation);
             Assert.That(constraint, Is.TypeOf<OutputConstraint>());
             var outputConstraint = (OutputConstraint)constraint;
             Assert.That(outputConstraint.Expression, Is.TypeOf<Constant<TValue>>());

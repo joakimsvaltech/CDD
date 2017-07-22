@@ -9,7 +9,7 @@ namespace CDD.Core.Commands
         public override void Execute(Program program)
         {
             var namedConstraint = program.Remove(Name);
-            namedConstraint.Constraint = Constraint.Parse(NewConstraint);
+            namedConstraint.Constraint = Translator.Translate(NewConstraint);
             program.Add(namedConstraint);
         }
     }

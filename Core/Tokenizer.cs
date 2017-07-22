@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using CDD.Core.Tokens;
 
-namespace CDD.Core.Constraints
+namespace CDD.Core
 {
+    using Tokens;
+
     public static class Tokenizer
     {
         public static TreeNode Parse(string representation)

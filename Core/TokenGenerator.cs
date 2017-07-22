@@ -1,7 +1,7 @@
 using System;
 using CDD.Core.Tokens;
 
-namespace CDD.Core.Constraints
+namespace CDD.Core
 {
     internal class TokenGenerator
     {

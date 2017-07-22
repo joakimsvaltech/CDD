@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constraints.cs" />
+    <Compile Include="Translators.cs" />
     <Compile Include="Generators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

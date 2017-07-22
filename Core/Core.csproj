@@ -42,9 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constraints\Tokenizer.cs" />
-    <Compile Include="Constraints\TokenGenerator.cs" />
-    <Compile Include="Constraints\TreeNode.cs" />
+    <Compile Include="Translator.cs" />
+    <Compile Include="Tokenizer.cs" />
+    <Compile Include="TokenGenerator.cs" />
+    <Compile Include="TreeNode.cs" />
     <Compile Include="Expressions\Return.cs" />
     <Compile Include="Tokens\Literal.cs" />
     <Compile Include="Tokens\Multiply.cs" />

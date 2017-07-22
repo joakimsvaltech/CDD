@@ -1,6 +1,6 @@
 using CDD.Core.Tokens;
 
-namespace CDD.Core.Constraints
+namespace CDD.Core
 {
     public class TreeNode
     {
