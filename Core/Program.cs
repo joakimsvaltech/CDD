@@ -7,7 +7,7 @@ namespace CDD.Core
     public class Program
     {
         private Dictionary<string, NamedConstraint> _constraints = new Dictionary<string, NamedConstraint>();
-        private List<Expression> _expressions = new List<Expression>();
+        private IList<Expression> _expressions = new List<Expression>();
         private readonly Generator _generator;
 
         public Program(Generator generator)
@@ -32,8 +32,7 @@ namespace CDD.Core
         }
 
         private void ReGenerate()
-            => _expressions = _generator.Generate(_constraints.Values.Select(nc => nc.Constraint).ToArray())
-                            .ToList();
+            => _expressions = new [] {_generator.Generate(_constraints.Values.FirstOrDefault()?.Constraint)};
 
         public NamedConstraint Remove(string name)
         {

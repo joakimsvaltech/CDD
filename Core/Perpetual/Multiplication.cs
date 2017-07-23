@@ -1,4 +1,4 @@
-﻿namespace CDD.Core.Spec
+﻿namespace CDD.Core.Perpetual
 {
     public class Multiplication : Expression
     {
@@ -19,5 +19,7 @@
                 return new Constant<decimal>(leftd.Value * rightd.Value);
             return this;
         }
+
+        public override bool Accept(Temporal.Expression expression) => false;
     }
 }

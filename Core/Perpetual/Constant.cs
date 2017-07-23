@@ -1,8 +1,8 @@
 using System.Globalization;
 
-namespace CDD.Core.Spec
+namespace CDD.Core.Perpetual
 {
-    public class Constant : Expression
+    public abstract class Constant : Expression
     {
         public static bool TryParse(string outputRepresentation, out Constant expression)
         {
@@ -21,5 +21,11 @@ namespace CDD.Core.Spec
 
         public Constant(TValue value)
             => Value = value;
+
+        public override bool Accept(Temporal.Expression expression)
+        {
+            var temporalConstant = expression as Temporal.Constant<TValue>;
+            return temporalConstant != null && temporalConstant.Value.Equals(Value);
+        }
     }
 }

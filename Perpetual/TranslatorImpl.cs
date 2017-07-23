@@ -1,5 +1,5 @@
 using System;
-using CDD.Core.Spec;
+using CDD.Core.Perpetual;
 
 namespace CDD.Perpetual
 {

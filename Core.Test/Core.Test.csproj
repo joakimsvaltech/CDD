@@ -54,6 +54,10 @@
       <Project>{BF32E639-0E3D-4883-BA8B-A635E461D22E}</Project>
       <Name>Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Temporal\Temporal.csproj">
+      <Project>{004A74A3-0D82-4AC0-9F41-0B697D9AE722}</Project>
+      <Name>Temporal</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

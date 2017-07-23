@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6A214C79-8CE4-463D-9920-732C57FF61DA}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>CDD.ConsoleApp</RootNamespace>
-    <AssemblyName>CDD.ConsoleApp</AssemblyName>
+    <ProjectGuid>{D3C1F9BB-B8B9-4BFA-A5FB-A2755687E526}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Temporal.Test</RootNamespace>
+    <AssemblyName>Temporal.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,34 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandBinding.cs" />
-    <Compile Include="ConsoleInteractor.cs" />
-    <Compile Include="ExitCommand.cs" />
-    <Compile Include="FileStorage.cs" />
-    <Compile Include="HelpCommand.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="GeneratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{bf32e639-0e3d-4883-ba8b-a635e461d22e}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Perpetual\Perpetual.csproj">
-      <Project>{2A9C7F53-0842-4AF1-8727-FA7C51E04A16}</Project>
-      <Name>Perpetual</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Temporal\Temporal.csproj">
-      <Project>{004A74A3-0D82-4AC0-9F41-0B697D9AE722}</Project>
-      <Name>Temporal</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utility\Utility.csproj">
-      <Project>{70FCEC7C-E590-4BC4-8446-AF02829D4FAF}</Project>
-      <Name>Utility</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

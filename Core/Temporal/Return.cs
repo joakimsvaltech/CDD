@@ -1,4 +1,4 @@
-﻿namespace CDD.Core.Perpetual
+﻿namespace CDD.Core.Temporal
 {
     public class Return : Expression
     {
@@ -6,7 +6,5 @@
             => Statement = statement;
 
         public Expression Statement { get; }
-
-        public override bool Accept(Temporal.Expression expression) => false;
     }
 }

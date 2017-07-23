@@ -1,5 +1,5 @@
 ﻿using System;
-using CDD.Core.Spec;
+using CDD.Core.Perpetual;
 using CDD.Perpetual.Tokens;
 
 namespace CDD.Perpetual

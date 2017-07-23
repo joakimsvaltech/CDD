@@ -1,10 +1,12 @@
-namespace CDD.Core.Spec
+namespace CDD.Core.Perpetual
 {
-    public class Constraint
+    public abstract class Constraint
     {
         public string Representation { get; set; }
 
         public override string ToString()
             => Representation;
+
+        public abstract bool Apply(Temporal.Expression expression);
     }
 }

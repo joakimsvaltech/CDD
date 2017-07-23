@@ -1,4 +1,4 @@
-﻿using CDD.Core.Spec;
+﻿using CDD.Core.Perpetual;
 using NUnit.Framework;
 
 namespace CDD.Perpetual.Test

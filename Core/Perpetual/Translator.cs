@@ -1,4 +1,4 @@
-namespace CDD.Core.Spec
+namespace CDD.Core.Perpetual
 {
     public interface Translator
     {

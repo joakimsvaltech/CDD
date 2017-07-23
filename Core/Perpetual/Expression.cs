@@ -1,7 +1,9 @@
-﻿namespace CDD.Core.Spec
+﻿namespace CDD.Core.Perpetual
 {
-    public class Expression
+    public abstract class Expression
     {
         public virtual Expression Resolve() => this;
+
+        public abstract bool Accept(Temporal.Expression expression);
     }
 }
